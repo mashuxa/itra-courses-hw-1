@@ -1,0 +1,42 @@
+html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+}
+
+.source-container {
+  outline: 1px dotted darkgray;
+  width: 50%;
+  height: 100%;
+  position: relative;
+
+  &__object {
+    position: absolute;
+    &--square {
+      background-color: red;
+      width: 100px;
+      height: 100px;
+    }
+    &--circle {
+      background-color: blue;
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+    }
+  }
+
+}
+
+.canvas {
+  outline: 1px dotted darkgray;
+  align-self: flex-start;
+}
