@@ -18,9 +18,15 @@ body {
   width: 50%;
   height: 100%;
   position: relative;
+  overflow: hidden;
 
   &__object {
     position: absolute;
+
+    &:active {
+
+    }
+
     &--square {
       background-color: red;
       width: 100px;
