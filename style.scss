@@ -18,9 +18,15 @@ body {
   width: 50%;
   height: 100%;
   position: relative;
+  z-index: 2;
 
   &__object {
     position: absolute;
+
+    &:active {
+
+    }
+
     &--square {
       background-color: red;
       width: 100px;
@@ -39,4 +45,5 @@ body {
 .canvas {
   outline: 1px dotted darkgray;
   align-self: flex-start;
+  z-index: 1;
 }

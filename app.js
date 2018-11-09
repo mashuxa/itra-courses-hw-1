@@ -4,29 +4,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const objectWrapper = document.querySelector('.source-container');
   const objects = objectWrapper.querySelectorAll('.source-container__object');
   let objectProps;
+  let canvasWidth;
+
 
   function render(props) {
     ctx.beginPath();
-    ctx.moveTo(props.x0 + props.borderRadius, props.y0);
+    ctx.moveTo(-canvasWidth + props.x0 + props.borderRadius, props.y0);
 
-    ctx.lineTo(props.x0 + props.width - props.borderRadius, props.y0);
-    ctx.arcTo(props.x0 + props.width, props.y0,
-      props.x0 + props.width, props.y0 + props.borderRadius,
+    ctx.lineTo(-canvasWidth + props.x0 + props.width - props.borderRadius, props.y0);
+    ctx.arcTo(-canvasWidth + props.x0 + props.width, props.y0,
+      -canvasWidth + props.x0 + props.width, props.y0 + props.borderRadius,
       props.borderDeg);
 
-    ctx.lineTo(props.x0 + props.width, props.y0 + props.height - props.borderRadius);
-    ctx.arcTo(props.x0 + props.width, props.y0 + props.height,
-      props.x0 + props.width - props.borderRadius, props.y0 + props.height,
+    ctx.lineTo(-canvasWidth + props.x0 + props.width, props.y0 + props.height - props.borderRadius);
+    ctx.arcTo(-canvasWidth + props.x0 + props.width, props.y0 + props.height,
+      -canvasWidth + props.x0 + props.width - props.borderRadius, props.y0 + props.height,
       props.borderDeg);
 
-    ctx.lineTo(props.x0 + props.borderRadius, props.y0 + props.height);
-    ctx.arcTo(props.x0, props.y0 + props.height,
-      props.x0, props.y0 + props.height - props.borderRadius,
+    ctx.lineTo(-canvasWidth + props.x0 + props.borderRadius, props.y0 + props.height);
+    ctx.arcTo(-canvasWidth + props.x0, props.y0 + props.height,
+      -canvasWidth + props.x0, props.y0 + props.height - props.borderRadius,
       props.borderDeg);
 
-    ctx.lineTo(props.x0, props.y0 + props.borderRadius);
-    ctx.arcTo(props.x0, props.y0,
-      props.x0 + props.borderRadius, props.y0,
+    ctx.lineTo(-canvasWidth + props.x0, props.y0 + props.borderRadius);
+    ctx.arcTo(-canvasWidth + props.x0, props.y0,
+      -canvasWidth + props.x0 + props.borderRadius, props.y0,
       props.borderDeg);
 
     ctx.fillStyle = props.fillColor;
@@ -55,13 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(objectProps.x0, objectProps.y0);
   }
 
-
   function moveObject(e) {
     if (e.target.classList.contains('source-container__object')) {
       e.target.style.left = `${e.target.offsetLeft + e.movementX}px`;
       e.target.style.top = `${e.target.offsetTop + e.movementY}px`;
-      // objectProps.x0 = objectProps.x0 + e.movementX;
-      // objectProps.y0 = objectProps.y0 + e.movementY;
     }
     renderAll();
   }
@@ -80,9 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
 
-  // *******
   function setWrapperSize() {
-    canvas.width = window.innerWidth / 2;
+    canvasWidth = canvas.width = window.innerWidth / 2;
     canvas.height = window.innerHeight;
     renderAll();
   }

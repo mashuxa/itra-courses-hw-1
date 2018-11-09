@@ -14,7 +14,8 @@ body {
   outline: 1px dotted darkgray;
   width: 50%;
   height: 100%;
-  position: relative; }
+  position: relative;
+  z-index: 2; }
   .source-container__object {
     position: absolute; }
     .source-container__object--square {
@@ -29,6 +30,7 @@ body {
 
 .canvas {
   outline: 1px dotted darkgray;
-  align-self: flex-start; }
+  align-self: flex-start;
+  z-index: 1; }
 
 /*# sourceMappingURL=style.css.map */
