@@ -22,9 +22,10 @@ body {
 
   &__object {
     position: absolute;
+    cursor: pointer;
 
     &:active {
-
+      opacity: 0.5;
     }
 
     &--square {

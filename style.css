@@ -17,7 +17,10 @@ body {
   position: relative;
   z-index: 2; }
   .source-container__object {
-    position: absolute; }
+    position: absolute;
+    cursor: pointer; }
+    .source-container__object:active {
+      opacity: 0.5; }
     .source-container__object--square {
       background-color: red;
       width: 100px;
