@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let objectProps;
   let canvasWidth;
 
+
   function render(props) {
     ctx.beginPath();
     ctx.moveTo(-canvasWidth + props.x0 + props.borderRadius, props.y0);
@@ -61,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.target.style.left = `${e.target.offsetLeft + e.movementX}px`;
       e.target.style.top = `${e.target.offsetTop + e.movementY}px`;
     }
+    renderAll();
   }
 
   objectWrapper.addEventListener('mousedown', (e) => {
@@ -71,11 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
       document.addEventListener('mousemove', moveObject);
       document.addEventListener('mouseup', () => {
           document.removeEventListener('mousemove', moveObject);
-          renderAll();
         },
       );
     },
   );
+
 
   function setWrapperSize() {
     canvasWidth = canvas.width = window.innerWidth / 2;
